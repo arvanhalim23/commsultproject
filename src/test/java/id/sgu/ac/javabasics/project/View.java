@@ -16,7 +16,6 @@ class View implements java.util.Observer {
 
 
 	private TextField myTextField1;
-	private TextField myTextField2;
 	private Button button;
 
 	
@@ -28,9 +27,6 @@ class View implements java.util.Observer {
 
 		myTextField1 = new TextField();
 		frame.add("Center", myTextField1);
-		
-		myTextField2 = new TextField();
-		frame.add("East", myTextField2);
 
 		Panel panel = new Panel();
 		button = new Button("Change temperature (random)");
@@ -45,7 +41,6 @@ class View implements java.util.Observer {
 	} 
     	public void update(Observable obs, Object obj) {
 		myTextField1.setText("Temperature: " + ((Integer)obj).intValue());
-		myTextField2.setText("Saya sudah tidak mengerti dan ingin pasrah, please send help as soon as possible. Im very tired right now.");
     	} 
     	
 	public void addController(ActionListener controller){
