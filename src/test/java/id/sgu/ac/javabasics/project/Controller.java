@@ -13,7 +13,7 @@ class Controller implements java.awt.event.ActionListener {
 		System.out.println("Controller: acting on Model");
 		model.incrementValue();
 	} 
-
+	
 	public void addModel(Model m){
 		System.out.println("Controller: adding model");
 		this.model = m;
@@ -24,7 +24,11 @@ class Controller implements java.awt.event.ActionListener {
 		this.view = v;
 	} 
 
-	public void initModel(int x){
+	public void initTemperature(int x){
 		model.setValue(x);
+	} 
+	
+	public void initHumidity(int h){
+		model.setValue(h);
 	} 
 } 

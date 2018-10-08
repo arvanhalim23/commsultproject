@@ -10,16 +10,14 @@ import java.awt.event.WindowAdapter;
 import java.lang.Integer;		
 import java.util.Observable;	
 import java.awt.event.ActionListener;
-import java.util.Random;
 
 
 class View implements java.util.Observer {
 
 
-	private TextField myTextField;
+	private TextField myTextField1;
 	private Button button;
-	Random rand = new Random();
-	private int n = rand.nextInt(50) + 1;
+
 	
 	View() {
 		System.out.println("View()");	
@@ -27,28 +25,23 @@ class View implements java.util.Observer {
 		Frame frame = new Frame();
 		frame.add("North", new Label("Random temperature"));
 
-		myTextField = new TextField();
-		frame.add("Center", myTextField);
+		myTextField1 = new TextField();
+		frame.add("Center", myTextField1);
 
 		Panel panel = new Panel();
-		button = new Button("Press");
+		button = new Button("Change temperature (random)");
 		panel.add(button);
 		frame.add("South", panel);		
 
 		frame.addWindowListener(new CloseListener());	
-		frame.setSize(300,200);
+		frame.setSize(250,150);
 		frame.setLocation(100,100);
 		frame.setVisible(true);
 
 	} 
     	public void update(Observable obs, Object obj) {
-		myTextField.setText("" + ((Integer)obj).intValue());
-
+		myTextField1.setText("Temperature: " + ((Integer)obj).intValue());
     	} 
-
-	public void setValue(int v){
-    		myTextField.setText("" + n);
-	} 
     	
 	public void addController(ActionListener controller){
 		System.out.println("View      : adding controller");

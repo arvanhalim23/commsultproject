@@ -2,7 +2,8 @@ package id.sgu.ac.javabasics.project;
 
 public class Model extends java.util.Observable {	
 		
-	private int random = (int)(Math.random() * 50 + 1);
+	private int randomT = (int)(Math.random() * 40 + 1);
+	private int randomH = (int)(Math.random() * 100 + 1);
 	
 	public Model(){
 		System.out.println("Model()");
@@ -10,19 +11,23 @@ public class Model extends java.util.Observable {
 	
 	public void setValue(int value) {
 		
-		random = (int)(Math.random() * 50 + 1);	
+		randomT = (int)(Math.random() * 40 + 1);
+		randomH = (int)(Math.random() * 100 + 1);
 		
-		if(random < 20) {
-		System.out.println("Model init: temperature = " + random + " ,Turning off aircon");
+		if(randomT < 20 || randomH < 50) {
+		System.out.println("Model init: temperature = " + randomT + " ,initial humidity = " + randomH +" ,Aircon : OFF");
+		
 		setChanged();
-		notifyObservers(random);
+		notifyObservers(randomT);
+		notifyObservers(randomH);
 		
 		}
 		
-		else if (random >= 20){
-		System.out.println("Model init: temperature = " + random + " ,Turning on aircon");
+		else if (randomT >= 20 || randomH >= 50){
+			System.out.println("Model init: temperature = " + randomT + " ,initial humidity = " + randomH +" ,Aircon : ON");
 		setChanged();
-		notifyObservers(random);
+		notifyObservers(randomT);
+		notifyObservers(randomH);
 		
 		}
 
@@ -30,18 +35,21 @@ public class Model extends java.util.Observable {
 	
 	public void incrementValue() {
 		
-		random = (int)(Math.random() * 50 + 1);	
+		randomT = (int)(Math.random() * 40 + 1);
+		randomH = (int)(Math.random() * 100 + 1);
 		
-		if(random < 20) {	
-		System.out.println("Current temperature = " + random + " ,Turning off aircon");
+		if(randomT < 20 || randomH < 50) {	
+		System.out.println("Current temperature = " + randomT + " ,Current humidity = " +randomH + " ,Aircon : OFF");
 		setChanged();
-		notifyObservers(random);
+		notifyObservers(randomT);
+		notifyObservers(randomH);
 		
 		}
-		else if ( random >= 20){	
-		System.out.println("Current temperature = " + random + " ,Turning on aircon");
+		else if (randomT >= 20 || randomH >= 50){	
+			System.out.println("Current temperature = " + randomT + " ,Current humidity = " +randomH + " ,Aircon : ON");
 		setChanged();
-		notifyObservers(random);	
+		notifyObservers(randomT);
+		notifyObservers(randomH);	
 		
 		}
 		}
