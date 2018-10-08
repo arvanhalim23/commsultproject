@@ -22,15 +22,13 @@ public class Model extends java.util.Observable {
 		notifyObservers(randomH);
 		
 		}
-		
+
 		else if (randomT >= 20 || randomH >= 50){
 			System.out.println("Model init: temperature = " + randomT + " ,initial humidity = " + randomH +" ,Aircon : ON");
 		setChanged();
 		notifyObservers(randomT);
 		notifyObservers(randomH);
-		
 		}
-
 	}
 	
 	public void incrementValue() {
